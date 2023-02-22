@@ -1,0 +1,109 @@
+<div class="bootstrap-wrapper">
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <mat-card color="primary">
+                    <mat-card-header class="text-center">
+                        <div class="container text-center">
+                            <fa-icon [icon]="faReg"></fa-icon>
+                            <mat-card-title style="font-weight: bold;">Admin Register</mat-card-title>
+                        </div>
+                    </mat-card-header><br>
+                    <mat-card-content class="text-center">
+                        <form #f="ngForm" (ngSubmit)="f.form.valid ">
+                            <div class="alert alert-danger" *ngIf="errorMessage">
+                                {{errorMessage}}
+                            </div>
+                            <p>
+                                <mat-form-field class="full-width" appearance="outline">
+                                    <mat-label>Email</mat-label>
+                                    <mat-hint>Enter your Email</mat-hint>
+                                    <input matInput type="email" placeholder="Email" required
+                                        pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel"
+                                        [class.is-invalid]="email.invalid && email.touched" name="email" id="email"
+                                        [(ngModel)]=admin.email>
+                                    <mat-error *ngIf="email.errors?.['required']">
+                                        Email is required
+                                    </mat-error>
+                                    <mat-error *ngIf="email.errors?.['pattern']">
+                                        Enter correct email
+                                    </mat-error>
+                                </mat-form-field>
+                            </p>
+                            <p>
+                                <mat-form-field class="full-width" appearance="outline">
+                                    <mat-label>username</mat-label>
+                                    <input matInput placeholder="username" required #username="ngModel"
+                                        [class.is-invalid]="username.invalid && username.touched" name="username"
+                                        pattern="[A-Za-z]{6,}"
+                                        id="username" [(ngModel)]="admin.username">
+                                    <mat-hint>Enter your username</mat-hint>
+                                    <mat-error *ngIf="username.errors?.['required']">
+                                        username is required
+                                    </mat-error>
+                                    <mat-error *ngIf="username.errors?.['pattern']">
+                                        Enter min 6 letters username
+                                     </mat-error>
+                                </mat-form-field>
+                            </p>
+                           
+                            <div ngModelGroup="passwordGroup"
+                                [class.is-invalid]="confrimpassword.invalid && confrimpassword.touched && !confrimpassword.errors?.['required']">
+                                <p>
+                                    <mat-form-field class="full-width" appearance="outline">
+                                        <mat-label>Password</mat-label>
+                                        <input matInput type="password" placeholder="Password" id="password"
+                                            (input)="confrimpassword.control.updateValueAndValidity()" name="password"
+                                            [class.is-invalid]="password.invalid && password.touched"
+                                            [(ngModel)]="admin.password" #password="ngModel" required>
+                                        <mat-hint>Choose secure password</mat-hint>
+                                        <mat-error *ngIf="password.errors?.['required']">
+                                            Password is required
+                                        </mat-error>
+                                    </mat-form-field>
+                                </p>
+
+
+
+                                <p>
+                                    <mat-form-field class="full-width" appearance="outline">
+                                        <mat-label>Confrim Password</mat-label>
+                                        <input matInput type="password" placeholder="Confrim Password"
+                                            id="confrimpassword" name="confrimpassword"
+                                            appConfrimEqualValidator="password"
+                                            [class.is-invalid]="confrimpassword.invalid && confrimpassword.touched"
+                                            [(ngModel)]="admin.confrimpassword" #confrimpassword="ngModel" required>
+                                        <mat-hint>Enter Confrim password</mat-hint>
+
+                                        <mat-error *ngIf="confrimpassword.errors?.['required']">
+                                            Comfrim Password is required
+                                        </mat-error>
+                                        <mat-error
+                                            *ngIf="confrimpassword.touched && confrimpassword.errors?.notEqual && !confrimpassword.errors?.['required'] ">Password
+                                            and Confrim Password does not match</mat-error>
+
+                                    </mat-form-field>
+                                </p>
+                            </div>
+
+
+                            <div class="container text-center">
+                                <button type="submit" [disabled]="f.form.invalid " (click)="registerAdmin()"
+                                    mat-raised-button color="primary"
+                                    style="font-family: 'Quicksand', sans-serif;">Register</button>
+                                <button [routerLink]="['/adminlogin']" mat-raised-button
+                                    style="margin-left: 20px; font-family: 'Quicksand', sans-serif;"
+                                    color="accent">Login</button>
+
+                            </div>
+                            <div>
+                                <br>
+                                <p>Already have an account? <a href="/adminlogin">Login</a></p>
+                            </div>
+
+                        </form>
+                    </mat-card-content>
+                </mat-card>
+
+            </div>
+        </div>

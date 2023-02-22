@@ -1,0 +1,26 @@
+
+<mat-action-list >
+    <div mat-subheader><b>ADMIN</b></div>
+    <button mat-list-item [routerLink]="['/washer']">
+    <fa-icon [icon]="home" style="position:relative; right: 0.05cm;"></fa-icon>Home
+    </button>
+    <button mat-list-item [routerLink]="['/washer/myorders']">
+    <fa-icon [icon]="shoppingbag" style="position:relative; right: 0.05cm;"></fa-icon>My Orders
+    </button>  
+    
+    <button mat-list-item [routerLink]="['/washer/unassigned']">
+    <fa-icon [icon]="un" style="position:relative; right: 0.05cm;"></fa-icon>Unassigned
+    </button>
+    <button mat-list-item [routerLink]="['/washer/washpacks']">
+    <fa-icon [icon]="wp" style="position:relative; right: 0.05cm;"></fa-icon>Washpacks
+    </button>
+    <button mat-list-item [routerLink]="['/washer/profile']">
+        <fa-icon [icon]="user" style="position:relative; right: 0.05cm;"></fa-icon>Profile
+        </button>
+    <button mat-list-item [routerLink]="['/aboutus']">
+    <fa-icon [icon]="info" style="position:relative; right: 0.05cm;"></fa-icon>About
+    </button>
+    
+</mat-action-list>
+
+

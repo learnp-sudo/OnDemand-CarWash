@@ -1,0 +1,31 @@
+spring:
+  cloud:
+   gateway:
+     routes:
+        - id: admin
+          uri: http://localhost:8081
+          predicates:
+            - Path=/admins/**
+        - id: order
+          uri: http://localhost:8083
+          predicates:
+            - Path=/orders/**
+        - id: customer
+          uri: http://localhost:8082
+          predicates:
+            - Path=/customer/**
+        - id: washer
+          uri: http://localhost:8084
+          predicates:
+            - Path=/washers/**
+        - id: cart
+          uri: http://localhost:8085
+          predicates:
+            - Path=/cart/**
+  application:
+          name: APIGateWay
+                   
+server:
+   port: 8888
+   
+   

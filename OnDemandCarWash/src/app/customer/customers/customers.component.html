@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="pt-5">
+      <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6">
+                    <h3>Customers</h3>
+                </div>
+            </div>
+        </div>
+        <div class="card-body"  style="height: 575px; overflow-y : scroll;">
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">customer_id</th>
+          <th scope="col">Email</th>
+          <th scope="col">Full Name</th>
+          <th scope="col">phoneNunmber</th>
+          <th scope="col">username</th>
+        </tr>
+      </thead>
+      <tbody>
+       <tr *ngFor="let customer of customerList; let i=index;">
+          <th scope="row">{{customer.id}}</th>
+          <td>{{ customer.email}}</td>
+          <td>{{ customer.fullName}}</td>
+          <td>{{ customer.phoneNumber}}</td>
+          <td>{{ customer.username}}</td>  
+        </tr>
+      </tbody>
+    </table>
+  </div>
+      </div>

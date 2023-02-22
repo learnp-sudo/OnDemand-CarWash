@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="col-sm-6 offset-md-3">
+    <legend>Add WashPack</legend>
+
+    <form #f="ngForm" (ngSubmit)="f.form.valid && add()">
+      <div class="form-group">
+        <label for="txtid" class="form-label">pack_id</label>
+        <input type="text" class="form-control" id="txtid" name="pack_id" #pack_id="ngModel" 
+        pattern="[0-9]{4,10}" [class.is-invalid]="pack_id.invalid && pack_id.touched"
+        [(ngModel)]="addWashPack.pack_id" required="required"/>
+        <div *ngIf="pack_id.errors && (pack_id.invalid && pack_id.touched)">
+            <small class="text-danger" *ngIf="pack_id.errors.required">Pack_id is required</small>
+            <small class="text-danger" *ngIf="pack_id.errors.pattern">Enter only Number</small>
+            </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="txtname" class="form-label">Pack Name</label>
+        <input type="text" class="form-control" id="txtname" required="required" name="name" #name="ngModel"
+        pattern="[A-Za-z\s]{5,30}"  [class.is-invalid]="name.invalid && name.touched"
+        [(ngModel)]="addWashPack.name" />
+          <div *ngIf="name.errors && (name.invalid && name.touched)">
+            <small class="text-danger" *ngIf="name.errors.required">Pack Name is required</small>
+            <small class="text-danger" *ngIf="name.errors.pattern">Enter valid Pack Name</small>
+            </div>
+      </div>
+
+      <label for="txtCost" class="form-label">Cost</label>
+      <input type="number" class="form-control" id="txtcost" 
+      [class.is-invalid]="cost.invalid && cost.touched"
+      required name="cost" #cost="ngModel" [(ngModel)]="addWashPack.cost" />
+      <div *ngIf="cost.errors && (cost.invalid && cost.touched)">
+        <small class="text-danger" *ngIf="cost.errors.required">Cost must be Entered</small>
+        </div>
+
+      <label for="txtdescription" class="form-label">Description</label>
+      <textarea rows="5" cols="60" class="form-control" id="txtdescription"  name="description"
+        [(ngModel)]="addWashPack.description">
+            </textarea>
+
+
+      <button type="submit" [disabled]="f.form.invalid" class="btn btn-primary ">Submit</button>
+
+    </form>
+  </div>

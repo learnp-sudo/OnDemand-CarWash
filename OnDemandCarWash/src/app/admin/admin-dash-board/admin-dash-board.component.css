@@ -1,0 +1,11 @@
+.dashboard-col-2
+{
+    background-color: white;
+    color: white;
+    min-height: 520px;
+    width: 150px;
+}
+.padding-0{
+    padding-right:0px;
+    padding-left:0px;
+}

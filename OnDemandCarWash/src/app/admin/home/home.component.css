@@ -1,0 +1,13 @@
+/* body
+    {
+        background-image: url('download.jpg');
+    } */
+
+    .home{
+        background-color: blanchedalmond;
+        
+    }
+    .container {
+        display: grid;
+        grid-gap: 20px;
+      }

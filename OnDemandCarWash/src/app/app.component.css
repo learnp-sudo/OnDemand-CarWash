@@ -1,0 +1,11 @@
+
+button {
+    margin-right: 5px;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+
+}
+.navbar{
+    background-color: rgb(27, 20, 12);
+    height: 3rem;
+}

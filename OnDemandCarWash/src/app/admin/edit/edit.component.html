@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="col-sm-6 offset-md-3">
+    <legend>update WashPack</legend>
+    <form #f="ngForm" (ngSubmit)="f.form.valid && update()">
+        
+            
+      <div class="form-group">
+        <label for="txtname" class="form-label">Pack Name</label>
+        <input type="text" class="form-control" id="txtname" required="required" name="name" #name="ngModel"
+        pattern="[A-Za-z\s]{5,30}"  [class.is-invalid]="name.invalid && name.touched"
+        [(ngModel)]="addWashPack.name" />
+          <div *ngIf="name.errors && (name.invalid && name.touched)">
+            <small class="text-danger" *ngIf="name.errors.required">Pack Name is required</small>
+            <small class="text-danger" *ngIf="name.errors.pattern">Enter valid Pack Name</small>
+            </div>
+      </div>
+        <div class="mb-3">
+          <label for="txtCost" class="form-label">Cost</label>
+          <input type="number" class="form-control" id="txtcost" 
+          [class.is-invalid]="cost.invalid && cost.touched"
+          required name="cost" #cost="ngModel" [(ngModel)]="addWashPack.cost" />
+          <div *ngIf="cost.errors && (cost.invalid && cost.touched)">
+            <small class="text-danger" *ngIf="cost.errors.required">Cost must be Entered</small>
+            </div>
+    
+          </div>
+          <div class="mb-3">
+            <label for="txtdescription" class="form-label">description</label>
+            <textarea rows="5" cols="60" class="form-control" id="txtdescription" name="description"
+            [(ngModel)]="addWashPack.description"
+            >
+            </textarea>
+          </div>
+          
+        <button type="submit" [disabled]="f.form.invalid" class="btn btn-primary">Update</button>
+        </form>
+        </div>
+</div>
+

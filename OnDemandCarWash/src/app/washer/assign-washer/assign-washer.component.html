@@ -1,0 +1,25 @@
+
+<div class="container">
+  <div class="col-sm-6 offset-md-3">
+    <legend>Assign Washer</legend>
+    <form>
+        
+            
+        <div class="mb-3">
+          <label for="txtorderId" class="form-label">orderId</label>
+          <input type="text" class="form-control" id="txtname" name="name" 
+          [(ngModel)]="AssignWashers.orderId"/>
+          
+        </div>
+        <div class="mb-3">
+            <label for="txtwasherName" class="form-label">Washer Name</label>
+            <input type="text" class="form-control" id="txtcost" name="cost" 
+            [(ngModel)]="AssignWashers.washerName"
+            />
+          </div>
+          
+          
+        <button type="submit" (click)="Assign()" class="btn btn-primary">Update</button>
+        </form>
+</div>
+</div>

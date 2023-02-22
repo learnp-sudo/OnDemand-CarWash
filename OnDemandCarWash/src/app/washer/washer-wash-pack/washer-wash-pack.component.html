@@ -1,0 +1,24 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <div class="row padding-5">
+            <div class="col-md-3 padding-1" *ngFor="let wp of WPList; index as ind">
+                <mat-card class="example-card">
+                    <div class="container-fluid icon text-center">
+                        <mat-icon mat-list-icon [inline]="true">local_drink</mat-icon>
+                    </div>
+                    <mat-card-content>
+                        <mat-action-list>
+                            <mat-list-item class="mt"><mat-icon mat-list-icon>format_align_justify</mat-icon>{{ wp.name
+                                }}</mat-list-item>
+                            <mat-list-item class="mt">
+                                <mat-icon mat-list-icon>money</mat-icon>₹{{ wp.cost }}
+                            </mat-list-item>
+                            <mat-list-item class="mt"><mat-icon mat-list-icon>list_alt</mat-icon>{{ wp.description
+                                }}</mat-list-item>
+                        </mat-action-list>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

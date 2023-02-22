@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="pt-5">   
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-6">
+              <h3>Unassigned Orders</h3>
+            </div>
+          </div>
+        </div>
+        <div class="card-body" style="height: 575px; overflow-y : scroll;">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">orderId</th>
+                <th scope="col">Customer</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Location Pin</th>
+                <th scope="col">Washer Name</th>
+                <th scope="col">Washpack</th>
+                <th scope="col">Status</th>
+                <th scope="col">Car Name</th>
+                <th >Assign Washer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let order of OrderList; let i=index;">
+                <td>{{order.orderId}}</td>
+                <td>{{ order.useremailid }}</td> 
+                <td>{{ order.phoneNo }}</td>
+                <td>{{ order.areapincode }}</td>
+                <td>{{ order.washerName }}</td>
+                <td>{{ order.washpacks }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.cars.name }}, {{order.cars.model}}</td>
+                <td>
+                    <a class="btn btn-primary" *ngIf="order.status==='Pending'" [routerLink]="['/washer/assignwasher',order.orderId]">Assign</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+

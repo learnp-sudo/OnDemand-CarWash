@@ -1,0 +1,88 @@
+    <div class="main-body" style="background-image: linear-gradient(125deg,rgb(214, 173, 111),#e9e994);">
+
+        <div class="heading">
+            
+            <p>WEL COME!</p><br><br>
+        
+            <p> <b>Car Wash & Wax Done</b></p>
+        </div>
+        <div class="heading">
+            <p> <b> By Professionals</b></p>
+        </div>
+        <div id="carouselExampleIndicators">
+            <img src="../../../../assets/images/car-wash.png" width="100%" height="500">
+        </div>    
+        <div class="gallery">
+            <div class="heading">
+                <p><b>WHAT WE</b> BELIEVE IN</p>
+            </div>
+            <div class="row" style="width: 85%; margin: auto;">
+                <div class="col-sm-4">
+                    <div class="card">
+                        <img src="../../../assets/images/customer-relation.jpg" width="100%" height="330">
+                        <div class="card-footer"><span>STRONG RELATIONS WITH CUSTOMERS</span></div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <img src="../../../assets/images/time.jpg" width="100%" height="330">
+                        <div class="card-footer"><span>WE CARE ABOUT YOUR TIME</span></div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <img src="../../../assets/images/service.jpg" width="100%" height="330">
+                        <div class="card-footer"><span>WE PROVIDE THE BEST SERVICES</span></div>
+                    </div>
+                </div>
+            </div>
+            <br>
+             <div class="heading">
+                <p><b>WHAT WE CAN</b> PROVIDE YOU?</p>
+            </div>
+            <div class="row" style="width: 85%; margin: auto;">
+                <div class="col-sm-4">
+                    <div class="card">
+                        <img src="../../../assets/images/washer.jpg" width="100%" height="330">
+                        <div class="card-footer"><span>BEST WASHERS</span></div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <img src="../../../assets/images/car-parts.jpg" width="100%" height="330">
+                        <div class="card-footer"><span>BEST MACHINARY</span></div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <img src="../../../assets/images/customer.jpg" width="100%" height="330">
+                        <div class="card-footer"><span>BEST CUSTOMER EXPERIENCE</span></div>
+                    </div>
+                </div>
+        </div>
+        <br><br>
+        <div id="washer">
+            <div class="headWasher">
+                <p>BECOME A <b>MEMBER</b><br><br>
+                    <span id="title"> Be Relax </span></p>
+            </div>
+            <div class="container-fluid">
+                <hr>
+                <br><br>
+                <div id="washerbutton"> 
+                    <p>for a sparkling good deal</p>
+                    <span>Join the network now! Click on the below button to register.</span> <br> <br>
+                    <mat-menu #lazyMenu="matMenu">
+                        <ng-template matMenuContent let-name="name">
+                            <button mat-menu-item routerLink="/adminregister">Register As Admin</button>
+                            <button mat-menu-item  (click)="regis();">Register As User</button>
+                            <button mat-menu-item routerLink="/washerregister">Register As Washer</button>
+                        </ng-template>
+                        </mat-menu>
+                        <button class="btn btn-dark btn-lg" [matMenuTriggerData]="{name:'Register'}" [matMenuTriggerFor]="lazyMenu">Register</button>
+
+                </div>
+            </div> 
+        </div>
+    </div> 
+

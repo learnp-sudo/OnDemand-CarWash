@@ -1,0 +1,145 @@
+<div class="bootstrap-wrapper">
+    <div class="container ">
+        <div class="row">
+            <div class="col-sm-6 offset-md-3">
+                <mat-card color="primary">
+                    <mat-card-header class="text-center">
+
+                        <div class="container">
+                            <fa-icon [icon]="sb"></fa-icon>
+                            <mat-card-title style="font-weight: bold;">PLACE ORDER</mat-card-title>
+                        </div>
+                    </mat-card-header>
+                    <mat-card-content class="text-center"> 
+                        <form #f="ngForm" (ngSubmit)="f.form.valid && placeOrder(orderDetails)">
+                        
+                           
+                                <div class="row">
+                                    <div class="col-5 mb-3">
+                                        <mat-form-field class="full-width" appearance="outline">
+                                            <mat-label>Choose a WashPack</mat-label>
+                                            <mat-hint>WashPack</mat-hint>
+                                            <mat-select required="required"
+                                               #washpack="ngModel"
+                                                 name="washpack" id=""
+                                                [(ngModel)]=orderDetails.washpacks>
+                                                <mat-option *ngFor="let washpack of washpacks"
+                                                    value="{{washpack}}">{{washpack}}</mat-option>
+                                            </mat-select>
+                                            <mat-error *ngIf="orderDetails.washpacks === ''">
+                                                Choose a washpack
+                                            </mat-error>
+                                            
+                                        </mat-form-field>
+                                    </div>
+                                 <div class="col-5 mb-3">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Phone number</mat-label>
+                                        <input matInput type="tel" name="phoneNo" id="phoneNo" #phoneNo="ngModel"
+                                        [class.is-invalid]="phoneNo.invalid && phoneNo.touched"
+                                         required [(ngModel)]=orderDetails.phoneNo  pattern="^((\\+91-?)|0)?[0-9]{10}$">
+                                         <mat-error *ngIf="phoneNo.errors?.['required']">
+                                            Phone Number is required
+                                        </mat-error>
+                                        <mat-error *ngIf="phoneNo.errors?.['pattern']">
+                                            Enter 10 digit phone Number
+                                        </mat-error>
+                                        <mat-hint>Enter your registered number</mat-hint>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5 mb-3">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Email ID</mat-label>
+                                        <input matInput type="email" name="useremailid" id="useremailid"
+                                            [class.is-invalid]="email.invalid && email.touched" required
+                                            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel"
+                                            [(ngModel)]=orderDetails.useremailid>
+                                        <mat-hint>Enter your registered Email</mat-hint>
+                                        <mat-error *ngIf="email.errors?.['required']">Email is required</mat-error>
+                                        <mat-error *ngIf="email.errors?.['pattern']">Enter correct email</mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-5 mb-3">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Pincode</mat-label>
+                                        <input matInput type="tel" name="areapincode" id="areapincode" #areapincode="ngModel" required 
+                                        [class.is-invalid]="areapincode.invalid && areapincode.touched"
+                                        [(ngModel)]=orderDetails.areapincode pattern="[0-9]{6}">
+                                        <mat-error *ngIf="areapincode.errors?.['required']">
+                                            Pincode is required
+                                        </mat-error>
+                                        <mat-error *ngIf="areapincode.errors?.['pattern']">
+                                            Enter 6 digit pincode
+                                        </mat-error>
+                                        <mat-hint>Help us to reach you</mat-hint>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                              
+
+                                <div class="col-5 mb-3">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>username</mat-label>
+                                        <input matInput type="text" name="username" id="username" #username="ngModel" required="required"
+                                        [class.is-invalid]="username.invalid && username.touched" 
+                                          [(ngModel)]=orderDetails.username >
+                                          <mat-error *ngIf="areapincode.errors?.['required']">
+                                            username is required
+                                        </mat-error>
+                                        
+                                        <mat-hint>Enter Your Username</mat-hint>
+                                    </mat-form-field>
+                                </div>
+
+
+                                <div class="col-5 mb-3">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Car Number</mat-label>
+                                        <input matInput type="text" name="id" id="id" #id="ngModel" required [(ngModel)]=orderDetails.cars.id>
+                                        <mat-error *ngIf="id.errors?.['required']">
+                                            CarNumber is required
+                                        </mat-error>
+                                        <mat-hint>Enter Your Car Number</mat-hint>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-5 mb-3">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Car</mat-label>
+                                        <input matInput type="text" name="name" id="name" #name="ngModel" required  [(ngModel)]=orderDetails.cars.name>
+                                        <mat-error *ngIf="name.errors?.['required']">
+                                            car name is required
+                                        </mat-error>
+                                        <mat-hint>Brand Name</mat-hint>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-5 mb-3">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Model</mat-label>
+                                        <input matInput type="text" name="model" id="model" #model="ngModel" required [(ngModel)]=orderDetails.cars.model>
+                                        <mat-error *ngIf="name.errors?.['required']">
+                                            Car Model is required
+                                        </mat-error>
+                                        <mat-hint>Car Model</mat-hint>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            
+                            <div class="container text-center">
+                                <button type="submit"  [disabled]="f.form.invalid " 
+                                    mat-raised-button color="primary">Order</button>
+                               
+                                   
+                                    
+                            </div>
+                       </form>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

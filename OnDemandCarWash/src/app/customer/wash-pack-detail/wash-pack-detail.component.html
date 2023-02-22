@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    
+<div class="card">
+
+    <div class="container-fluid icon text-center">
+        <mat-icon mat-list-icon [inline]="true">local_drink</mat-icon>
+    </div>
+    <mat-card-content>
+        <mat-action-list>
+            <mat-list-item class="mt"><mat-icon mat-list-icon>format_align_justify</mat-icon>{{ WPList.name
+                }}</mat-list-item>
+            <mat-list-item class="mt">
+                <mat-icon mat-list-icon>money</mat-icon>₹{{ WPList.cost }}
+            </mat-list-item>
+            <p class="mt"><mat-icon mat-list-icon>list_alt</mat-icon>{{ WPList.description
+                }}</p>
+                <br>
+                <br>
+                <mat-icon></mat-icon>
+                <button class="btn btn-primary" (click)="back()">Back</button>
+                
+        </mat-action-list>
+    </mat-card-content>
+
+</div>
+</div>
+
